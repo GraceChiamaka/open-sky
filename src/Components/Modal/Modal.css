@@ -1,0 +1,6 @@
+.Modal{
+    z-index: 500;
+    background: #fff;
+    position: fixed;
+    width: 100%;
+}
