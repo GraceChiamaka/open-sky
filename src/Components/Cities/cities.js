@@ -11,7 +11,6 @@ class cities extends Component {
     }
     show = (city) => {        
         this.setState({ show: true, currCity: city })
-        console.log(this.state.show)
     }
     hide = () => {
         this.setState({ show: false, currAirport: undefined , hide: true })
@@ -25,9 +24,12 @@ class cities extends Component {
            //debugger;
            return(
                <Aux>
-                   <h3 className="mt-3 text-capitalize">
-                       <strong>{airport.name}</strong>
-                    </h3>
+                   <div className="py-2 px-2 text-white  bg-primary">
+                        <h3 className="mt-3 text-capitalize">
+                            <strong>{airport.name}</strong>
+                        </h3>
+                   </div>
+                  
                    <Airport key={index} airportDetails={airportDetails} airport={airport} name={airport.name} />
                </Aux>                
            );
@@ -52,10 +54,10 @@ class cities extends Component {
                         <button className="btn btn-block btn-success mt-3" onClick={this.show.bind(this, this.props.name)}>View Flights Details</button>
                     </div>
                 </div>
-                {this.state.show && !this.state.hide?
+                {this.state.show &&
                     <Modal hide={this.hide}>
                         {this.airports()}
-                    </Modal> : null
+                    </Modal>
                 }
             </Aux>
         );
