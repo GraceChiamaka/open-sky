@@ -1,0 +1,14 @@
+.Login{
+    
+    padding: 2rem;  
+    /* border: 1px solid ; */
+    width: 50%;
+    margin: auto;
+    margin-top: 4rem;
+    -webkit-box-shadow: 4px 5px 5px 0px rgba(213,213,213,1);
+    -moz-box-shadow: 4px 5px 5px 0px rgba(213,213,213,1);
+    box-shadow: 4px 5px 5px 0px rgba(213,213,213,1);
+}
+.Login h1{
+    text-align: center;
+}
