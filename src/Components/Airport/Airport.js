@@ -28,7 +28,7 @@ class Airport extends Component{
             const arr = res.estArrivalAirport
             const dest = res.estDepartureAirport
             let arrivalTime = new Date(res.lastSeen * 1000);
-            let deptTime = ne Date(res.firstSeen * 1000);
+            let deptTime = new Date(res.firstSeen * 1000);
             
 
 
