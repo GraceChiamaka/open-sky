@@ -11,7 +11,6 @@ class cities extends Component {
     }
     show = (city) => {        
         this.setState({ show: true, currCity: city })
-        console.log(this.props.dates)
     }
     hide = () => {
         this.setState({ show: false, currAirport: undefined , hide: true })
@@ -35,9 +34,8 @@ class cities extends Component {
         });
     }
     async getAirportDetails(airport){
-        //let code = airport.code
         const url = `https://opensky-network.org/api/flights/arrival?airport=${airport.code}&begin=${this.props.dates.startDate}&end=${this.props.dates.endDate}`;
-        const data = await fetch(url)
+        const data = await fetch(url).catch((error) => { throw error; })
         return data.json();
     }
     

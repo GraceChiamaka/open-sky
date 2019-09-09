@@ -27,8 +27,8 @@ class Airport extends Component{
         return this.state.data.map((res) => {
             const arr = res.estArrivalAirport
             const dest = res.estDepartureAirport
-            let arrivalTime = res.lastSeen;
-            let deptTime = res.firstSeen;
+            let arrivalTime = new Date(res.lastSeen * 1000);
+            let deptTime = ne Date(res.firstSeen * 1000);
             
 
 

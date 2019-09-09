@@ -40,9 +40,9 @@ class App extends Component{
       endDate:  moment(end, "YYYY-MM-DD 09:00").unix().toString()
     }
     this.setState({ entryDates: date, showCities:true })
-    setTimeout(() => {
-      console.log( start, 'state', end);
-    }, 1000);
+    // setTimeout(() => {
+    //   console.log( start, 'state', end);
+    // }, 1000);
   }
  
   render(){
@@ -52,16 +52,19 @@ class App extends Component{
         <main>
           <div className="container mt-4">
             <h3 className="text-center">Citites with heavy air traffic</h3>
-            <form className="row mt-4" onSubmit={this.getDateInterval.bind(this)}>
-              <h3 className="text-center">Date interval should not exceed 7 days</h3>
+            <h3 className="text-center mt-3">Date interval should not exceed 7 days</h3>
+            <form className="row mt-5" onSubmit={this.getDateInterval.bind(this)}>
+              
               <div className="col-md-4">
+                <label>Starting Date</label>
                 <input type="date" id="start" className="form-control" required/>
               </div>
               <div className="col-md-4">
+                <label>End Date</label>
                 <input type="date" id="end" className="form-control" required/>
               </div>
-              <div className="col-md-4">
-                <button type="submit" className="btn btn-primary btn-md btn-block">Submit</button>
+              <div className="col-md-4 pt-4">
+                <button type="submit" className="btn btn-primary btn-md btn-block mt-2">Submit</button>
               </div>
               </form>
             <div className="row">
