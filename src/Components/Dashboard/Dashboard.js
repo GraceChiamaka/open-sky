@@ -53,6 +53,7 @@ class App extends Component{
           <div className="container mt-4">
             <h3 className="text-center">Citites with heavy air traffic</h3>
             <form className="row mt-4" onSubmit={this.getDateInterval.bind(this)}>
+              <h3 className="text-center">Date interval should not exceed 7 days</h3>
               <div className="col-md-4">
                 <input type="date" id="start" className="form-control" required/>
               </div>
