@@ -6,12 +6,19 @@ import Header from '../common/header';
 import '../../App.css';
 
 class App extends Component{
-  state={
-    cities: CityCode.cities,
-    startDate: 0,
-    endDate: 0
-  }
+    state = {
+      cities: CityCode.cities,
+      entryDates: [],
+      showCities: false,
+    }
+    
 
+    inputDates(){
+      return (
+        this.state.entryDates
+      )
+    }
+  
   cities(){
     return  this.state.cities.map(city => {
       return <Cities
@@ -19,22 +26,24 @@ class App extends Component{
               id={city.name}
               name={city.name}
               airports={city.airports}
+              dates={this.state.entryDates}
             />
     });
-  }
+  } 
   getDateInterval(e){
     e.preventDefault();
+    this.setState({ showCities: false });
+    let start =  e.target.elements.start.value;
+    let end = e.target.elements.end.value;
     const date={
-      startDate: e.target.elements.start.value,
-      endDate: e.target.elements.end.value
+      startDate: moment(start, "YYYY-MM-DD  08:00").unix().toString(),
+      endDate:  moment(end, "YYYY-MM-DD 09:00").unix().toString()
     }
-
-    let start = moment(date.startDate, "YYYY/MM/DD").unix();
-    let end = moment(date.endDate, "YYYY/MM/DD").unix();
-    //this.setState({ startDate: start, endDate: end })
-    //console.log(this.state.startDate)
+    this.setState({ entryDates: date, showCities:true })
+    setTimeout(() => {
+      console.log( start, 'state', end);
+    }, 1000);
   }
-
  
   render(){
     return (
@@ -43,7 +52,7 @@ class App extends Component{
         <main>
           <div className="container mt-4">
             <h3 className="text-center">Citites with heavy air traffic</h3>
-            <form className="row mt-4" onSubmit={this.getDateInterval}>
+            <form className="row mt-4" onSubmit={this.getDateInterval.bind(this)}>
               <div className="col-md-4">
                 <input type="date" id="start" className="form-control" required/>
               </div>
@@ -55,7 +64,13 @@ class App extends Component{
               </div>
               </form>
             <div className="row">
-              {this.cities()}
+              {
+                this.state.showCities  ?
+                  this.cities()
+                :
+                null
+              }
+              
             </div>
           </div>
         </main>

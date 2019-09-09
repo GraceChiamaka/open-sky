@@ -11,6 +11,7 @@ class cities extends Component {
     }
     show = (city) => {        
         this.setState({ show: true, currCity: city })
+        console.log(this.props.dates)
     }
     hide = () => {
         this.setState({ show: false, currAirport: undefined , hide: true })
@@ -19,13 +20,11 @@ class cities extends Component {
         const airports = this.props.airports;
         return airports.map((airport, index) =>{
           const airportDetails = this.getAirportDetails(airport)
-          // console.log(airportDetails, "details in cities")
            this.getAirportDetails(airport);
-           //debugger;
            return(
                <Aux>
-                   <div className="py-2 px-2 text-white  bg-primary">
-                        <h3 className="mt-3 text-capitalize">
+                   <div className="py-2 px-2 text-white mb-3  bg-primary">
+                        <h3 className="mt-3 text-capitalize text-center">
                             <strong>{airport.name}</strong>
                         </h3>
                    </div>
@@ -37,7 +36,7 @@ class cities extends Component {
     }
     async getAirportDetails(airport){
         //let code = airport.code
-        const url = `https://opensky-network.org/api/flights/arrival?airport=${airport.code}&begin=1517227200&end=1517230800`;
+        const url = `https://opensky-network.org/api/flights/arrival?airport=${airport.code}&begin=${this.props.dates.startDate}&end=${this.props.dates.endDate}`;
         const data = await fetch(url)
         return data.json();
     }

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import * as moment from 'moment';
 
 import Aux from '../../hoc/hoc';
+import './Airport.css';
 
 class Airport extends Component{
     state = {
@@ -32,8 +33,8 @@ class Airport extends Component{
 
 
             return (
-                <div className="col-md-4">
-                    <div className="card mb-3 p-3">
+                <div className="col-md-6">
+                    <div className="card mb-3 p-3 card-h">
                         <p>Departure Time: {moment(deptTime).format('DD/MM/YYYY')}</p>
                         <p>Arrival Time: {moment(arrivalTime).format('DD/MM/YYYY')}</p>
                         <p>Arrival Airport ICAO: <b>{arr ? arr : 'No estimated arival airport'}</b></p>
