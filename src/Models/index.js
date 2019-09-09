@@ -42,46 +42,73 @@ const cityCodes = {
                     code: "RJAA"
                 }
             ]
+        },
+        {
+            "id":4,
+            "name": "shanghai",
+            "airports": [
+                {
+                    name:"pudong",
+                    code:"ZSPD"
+                },
+                {
+                    name: "hongqiao",
+                    code: "ZSSS"
+                }
+            ]
+        },
+        {
+            id: 5,
+            "name": "los angeles",
+            "airport": [
+                {
+                    name: "lax",
+                    code: "KLAX"
+                },
+                {
+                    name: "long beach",
+                    code: "KLGB"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "paris",
+            "airports": [
+                {
+                    name: "orly",
+                    code: "LFPO"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "beijing",
+            "airports": [
+                {
+                    name: "capital",
+                    code: "DNMM"
+                },
+                {
+                    name: "nanyuan",
+                    code: "ZBNY"
+                }
+            ]
+        },
+        {
+            "id":8,
+            "name": "chicago",
+            "airports": [
+                {
+                    name: "midway",
+                    code: "KMDW",
+                },
+                {
+                    name: "rockford",
+                    code: "KRFD"
+                }
+            ]
         }
-        // {
-        //     "id":4,
-        //     "name": "shanghai",
-        //     "codes": {
-        //         "pudong": "ZSPD",
-        //         "hongqiao": "ZSSS"
-        //     }
-        // },
-        // {
-        //     "id":5,
-        //     "name": "los angeles",
-        //     "codes": {
-        //         "lax": "KLAX",
-        //         "long beach": "KLGB"
-        //     }
-        // },
-        // {
-        //     "id": 6,
-        //     "name": "paris",
-        //     "codes": {
-        //         "orly": "LFPO"
-        //     }
-        // },
-        // {
-        //     "id": 7,
-        //     "name": "beijing",
-        //     "codes": {
-        //         "capital": "DNMM",
-        //         "nanyuan": "ZBNY"
-        //     }
-        // },
-        // {
-        //     "id":8,
-        //     "name": "chicago",
-        //     "codes": {
-        //         "midway": "KMDW",
-        //         "rockford": "KRFD"
-        //     }
-        // }
     ]
 };
 
