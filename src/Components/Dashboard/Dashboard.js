@@ -11,14 +11,33 @@ class App extends Component{
       entryDates: [],
       showCities: false,
     }
-    
 
+/*
+ method fetch Dates from user inputDates
+ and stores the entry in state
+*/
     inputDates(){
       return (
         this.state.entryDates
       )
     }
-  
+    /*
+    method daysBetween calculates the number of days between
+    the selected start date and selected ending dat
+    */
+    daysBetween(startDate, endDate){
+      const oneDay = 60 * 60 * 24;
+      const unixDate = endDate - startDate;
+      const dayDiff = unixDate / oneDay;
+      if(dayDiff <= 7){
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+/*
+*/
   cities(){
     return  this.state.cities.map(city => {
       return <Cities
@@ -29,7 +48,7 @@ class App extends Component{
               dates={this.state.entryDates}
             />
     });
-  } 
+  }
   getDateInterval(e){
     e.preventDefault();
     this.setState({ showCities: false });
@@ -39,12 +58,18 @@ class App extends Component{
       startDate: moment(start, "YYYY-MM-DD  08:00").unix().toString(),
       endDate:  moment(end, "YYYY-MM-DD 09:00").unix().toString()
     }
-    this.setState({ entryDates: date, showCities:true })
-    // setTimeout(() => {
-    //   console.log( start, 'state', end);
-    // }, 1000);
+    if(this.daysBetween(date.startDate, date.endDate)){
+      this.setState({ entryDates: date, showCities:true });
+
+    } else{
+      console.log('terminate program');
+      alert('Date has to be between 7 days');
+      return
+    }
+
+
   }
- 
+
   render(){
     return (
       <div className="App">
@@ -54,7 +79,7 @@ class App extends Component{
             <h3 className="text-center">Citites with heavy air traffic</h3>
             <h3 className="text-center mt-3">Date interval should not exceed 7 days</h3>
             <form className="row mt-5" onSubmit={this.getDateInterval.bind(this)}>
-              
+
               <div className="col-md-4">
                 <label>Starting Date</label>
                 <input type="date" id="start" className="form-control" required/>
@@ -74,7 +99,7 @@ class App extends Component{
                 :
                 null
               }
-              
+
             </div>
           </div>
         </main>

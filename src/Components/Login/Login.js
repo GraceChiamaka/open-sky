@@ -9,7 +9,7 @@ import './Login.css';
 const Login = (props) => {
     const [error, setError] = useState(false);
 
-   
+
     const loginUser = (ev) => {
         ev.preventDefault();
         setError(false);
@@ -17,12 +17,13 @@ const Login = (props) => {
             username: ev.target.elements.username.value.trim().toLowerCase(),
             password: ev.target.elements.password.value.trim().toLowerCase(),
         };
-        if(loginData.username !== 'demo' && loginData.password !== "demo"){
-            setError(true);
-            return ;
+        if(loginData.username === 'demo' && loginData.password === "demo"){
+          setError(false);
+          history.push('/dashboard');
         }
-        setError(false);
-        history.push('/dashboard');
+        setError(true);
+        return ;
+
     };
     return(
         <Aux>
@@ -46,7 +47,7 @@ const Login = (props) => {
                     </div>
                 </form>
             </div>
-            
+
         </Aux>
     );
 }
